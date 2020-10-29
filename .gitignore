@@ -10,7 +10,8 @@ lib/Makefile
 docs
 *.swp
 tests/sources/*.ll
-
+build/
+dg/
 CMakeCache.txt
 CMakeFiles/
 Testing/
