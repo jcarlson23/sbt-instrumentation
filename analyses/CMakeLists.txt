@@ -33,6 +33,13 @@ add_library(ValueRelationsPlugin MODULE
 install(TARGETS ValueRelationsPlugin
 	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
+add_library(ExternalTypesPlugin MODULE
+	external_types_plugin.cpp
+)
+
+install(TARGETS ExternalTypesPlugin
+	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+      
 add_library(PredatorPlugin MODULE
     predator_plugin.cpp
 )
@@ -54,4 +61,5 @@ if (BUILD_SHARED_LIBS)
 	target_link_libraries(RangeAnalysisPlugin PRIVATE ${llvm_libs})
 	target_link_libraries(CheckNSWPlugin PRIVATE ${llvm_libs})
 	target_link_libraries(InfiniteLoopsPlugin PRIVATE ${llvm_libs})
+	target_link_libraries(ExternalTypesPlugin PRVIATE ${llvm_libs})
 endif()
