@@ -20,13 +20,16 @@ class ExternalTypesPlugin : public InstrPlugin
 
 
   bool externalSuccess;
+  llvm::Module* mod;
+
+  bool processFunctions();
   
 public:
   ExternalTypesPlugin(llvm::Module* module) : InstrPlugin("External") {
     externalSuccess = false;
     // here we do our analysis of the module, looking for
     // any external types.
-    
+    mod = module;
   }
   
   bool supports(const std::string& query) override {
